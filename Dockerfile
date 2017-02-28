@@ -16,3 +16,5 @@ RUN bundle update
 RUN bundle install
 
 COPY awssh ./
+
+CMD [ "/usr/local/src/awssh" ]
