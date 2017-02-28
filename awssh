@@ -22,7 +22,12 @@ end
 tempfile = Tempfile.new('awssh')
 tempfile.write(lines.join("\n"))
 tempfile.close
-line = `cat #{tempfile.path} | fzf`
+if ARGV.length > 0
+    query = "--query=\"#{ARGV.join(" ")}\""
+else
+    query = ""
+end
+line = `cat #{tempfile.path} | fzf #{query}`
 tempfile.unlink
 
 if $? == 0 && line.strip.size > 0

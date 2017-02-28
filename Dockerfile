@@ -17,4 +17,4 @@ RUN bundle install
 
 COPY awssh ./
 
-CMD [ "/usr/local/src/awssh" ]
+ENTRYPOINT [ "/usr/local/src/awssh" ]
