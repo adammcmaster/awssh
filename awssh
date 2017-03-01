@@ -27,7 +27,7 @@ if ARGV.length > 0
 else
     query = ""
 end
-line = `cat #{tempfile.path} | fzf #{query}`
+line = `cat #{tempfile.path} | fzf -1 #{query}`
 tempfile.unlink
 
 if $? == 0 && line.strip.size > 0
