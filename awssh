@@ -8,8 +8,6 @@ if $? != 0
   exit 1
 end
 
-puts "Getting instances"
-
 ec2 = Aws::EC2::Client.new(region: "us-east-1")
 response = ec2.describe_instances
 reservations = response.reservations
