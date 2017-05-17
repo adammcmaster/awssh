@@ -33,9 +33,7 @@ if $? == 0 && line.strip.size > 0
   chosen_instance = instances.find { |instance| instance.instance_id == chosen_instance_id }
 
   puts "ssh #{chosen_instance.public_dns_name}"
-  if ENV.fetch('AWSSH_EXECUTE', 'true') == 'true'
-      exec "ssh", chosen_instance.public_dns_name.to_s
-  end
+  exec "ssh", chosen_instance.public_dns_name.to_s
 else
   puts "Aborting."
   exit 1
