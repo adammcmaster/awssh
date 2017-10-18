@@ -1,9 +1,7 @@
 FROM ruby:2.4-alpine
 
-RUN apk update
-RUN apk add ca-certificates wget
+RUN apk --no-cache add ca-certificates wget openssh
 RUN update-ca-certificates
-RUN apk add openssh
 
 RUN wget -O - https://github.com/junegunn/fzf-bin/releases/download/0.16.5/fzf-0.16.5-linux_386.tgz | \
         tar -xz -C /usr/local/bin
